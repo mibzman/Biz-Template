@@ -1,0 +1,23 @@
+<mat-toolbar>
+  <span style="padding-right: 10px">
+    <button mat-icon-button (click)="SideBar.emit(true)">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </span>
+
+  <span class="example-fill-remaining-space">
+      Yay, Material in Angular 2!
+  </span>
+
+  <span>
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu x-position="after" #menu="matMenu">
+      <button mat-menu-item>Option 1</button>
+      <button mat-menu-item>Option 2</button>
+    </mat-menu>
+  </span>
+
+</mat-toolbar> 

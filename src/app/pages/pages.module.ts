@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
-import { SharedModule } from '../shared/shared.module'
+import { SharedModule } from '../shared'
 
-
-import {HomeComponent} from './pages'
+//index.ts allows for collecting a bunch of stuff at a dir level instead of a file level
+import {HomeComponent} from './'
 
 const PAGES = [HomeComponent];
 

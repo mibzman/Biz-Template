@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PagesModule } from './pages/pages.module'
+import { CoreComponentsModule } from './core-components/core-components.module'
 
 import {
   MatButtonModule,
@@ -30,7 +31,8 @@ import {
     MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    PagesModule
+    PagesModule,
+    CoreComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

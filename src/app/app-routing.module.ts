@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages/pages'
+import { HomeComponent } from './pages'
 
 const routes: Routes = [
 	// { path: 'crisis-center', component: CrisisListComponent },

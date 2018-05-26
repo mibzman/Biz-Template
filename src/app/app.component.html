@@ -1,38 +1,19 @@
 <mat-sidenav-container class="example-container" >
   <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
                (closed)="events.push('close!')">
-    <mat-toolbar></mat-toolbar> 
-    Sidenav content
-  </mat-sidenav>
 
+    <mat-toolbar></mat-toolbar>
+
+    <div class="side-bar-wrapper">
+      <side-bar></side-bar>
+    </div>
+
+  </mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-toolbar>
-      <span style="padding-right: 10px">
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </span>
-
-      <span class="example-fill-remaining-space">
-          Yay, Material in Angular 2!
-      </span>
-
-      <span>
-        <button mat-icon-button [mat-menu-trigger-for]="menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-
-        <mat-menu x-position="after" #menu="matMenu">
-          <button mat-menu-item>Option 1</button>
-          <button mat-menu-item>Option 2</button>
-        </mat-menu>
-      </span>
-
-    </mat-toolbar>  
+      <top-bar (SideBar)="sidenav.toggle()"></top-bar>
 
     <router-outlet></router-outlet>
 
-    
   </mat-sidenav-content>
 </mat-sidenav-container>
