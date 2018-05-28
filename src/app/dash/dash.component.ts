@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashComponent implements OnInit {
 
+	title = 'app';
+	events: string[] = [];
+	opened: boolean;
+
   constructor() { }
 
   ngOnInit() {

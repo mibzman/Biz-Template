@@ -15,7 +15,8 @@ const routes: Routes = [
 	//   redirectTo: '/heroes',
 	//   pathMatch: 'full'
 	// },
-	{ path: '**', component: DashComponent }
+	// { path: 'DashComponent', component: DashComponent },
+	{ path: '**', loadChildren: './dash/dash.module#DashModule'}
 ];
 
 @NgModule({

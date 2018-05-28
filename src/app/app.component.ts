@@ -6,8 +6,4 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  title = 'app';
-  events: string[] = [];
-  opened: boolean;
 }
