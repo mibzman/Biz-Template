@@ -9,16 +9,10 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { PagesModule } from './pages/pages.module'
+import { DashModule } from './dash/dash.module'
+import { EntryModule } from './entry/entry.module'
 import { CoreComponentsModule } from './core-components/core-components.module'
 
-import {
-  MatButtonModule,
-  MatMenuModule,
-  MatToolbarModule,
-  MatIconModule,
-  MatCardModule
-} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -31,10 +25,12 @@ import {
     MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    PagesModule,
+    DashModule,
+    EntryModule,
     CoreComponentsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

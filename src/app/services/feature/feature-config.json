@@ -1,0 +1,13 @@
+[
+	{
+		"Key": "USER",
+		"Title": "User",
+		"Features": [
+			{
+				"Key": "home",
+				"URL": "/",
+				"Title": "Home Page"
+			}
+		]
+	}
+]

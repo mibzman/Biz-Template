@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages'
+import { DashComponent } from './dash/dash.component'
 
 const routes: Routes = [
 	// { path: 'crisis-center', component: CrisisListComponent },
@@ -15,7 +15,7 @@ const routes: Routes = [
 	//   redirectTo: '/heroes',
 	//   pathMatch: 'full'
 	// },
-	{ path: '**', component: HomeComponent }
+	{ path: '**', component: DashComponent }
 ];
 
 @NgModule({
