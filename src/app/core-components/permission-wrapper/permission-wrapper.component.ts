@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { FeatureService } from '../../services'
+
 @Component({
   selector: 'permission-wrapper',
   templateUrl: './permission-wrapper.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PermissionWrapperComponent implements OnInit {
 
-  constructor() { }
+  constructor(private featureSer: FeatureService) { }
 
   ngOnInit() {
   }

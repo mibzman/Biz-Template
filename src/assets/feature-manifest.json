@@ -1,0 +1,37 @@
+{
+	"Roles": [
+		{
+			"Key": "GUEST",
+			"Title": "Guest",
+			"Features": [
+				{
+					"Key": "home-card",
+					"Title": "Home Card",
+					"URL": "/",
+					"Description": "the card reading 'sample card' on the home screen"
+				}
+			]
+		},
+		{
+			"Key": "SUPER",
+			"Title": "Super User",
+			"Features": [
+				{
+					"Key": "super-home-card",
+					"Title": "Super Home Card",
+					"URL": "/",
+					"Description": "the card reading 'Super sample card™' on the home screen"
+				}
+			]
+		}
+	],
+	"RoleFlows": [
+		{
+			"Key": "",
+			"Title": "",
+			"from": "",
+			"to": "",
+			"URL": ""
+		}
+	]
+}
