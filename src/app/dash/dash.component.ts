@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FeatureService } from '../services'
+
 
 @Component({
   selector: 'app-dash',
@@ -11,7 +13,7 @@ export class DashComponent implements OnInit {
 	events: string[] = [];
 	opened: boolean;
 
-  constructor() { }
+  constructor(private featureService: FeatureService) { }
 
   ngOnInit() {
   }

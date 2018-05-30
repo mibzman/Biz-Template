@@ -11,7 +11,7 @@ import { DashRoutingModule} from './dash-routing.module'
   imports: [
     SharedModule,
     CoreComponentsModule,
-    DashRoutingModule
+    DashRoutingModule,
   ],
   declarations: [HomeComponent, DashComponent]
 })
