@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { FeatureService } from '../../services'
+import { RoleFlow } from '../../services/feature'
+
+enum ComponentState {
+  Show = 0,
+  Hide,
+  Guard
+}
 
 @Component({
   selector: 'permission-wrapper',
@@ -9,9 +16,28 @@ import { FeatureService } from '../../services'
 })
 export class PermissionWrapperComponent implements OnInit {
 
-  constructor(private featureSer: FeatureService) { }
+	@Input() Feature: string
+
+	State: ComponentState = ComponentState.Show
+
+	Upgrade: RoleFlow;
+
+  constructor(
+  	private featureSer: FeatureService
+  	) { }
 
   ngOnInit() {
+  	console.log(this.Feature)
+  	let result = this.featureSer.canUseFeature(this.Feature)
+  	if (result == true){
+  		this.State = ComponentState.Show
+  	} else if (result == false) {
+  		this.State = ComponentState.Hide
+  	} else {
+  		this.Upgrade = result
+  		console.log(result)
+  		this.State = ComponentState.Guard
+  	}
   }
 
 }

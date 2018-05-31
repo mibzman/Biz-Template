@@ -1,1 +1,11 @@
-<ng-content></ng-content>
+<!-- {{State}} -->
+<div *ngIf="State==0">
+	<ng-container *ngTemplateOutlet="content"></ng-container>	
+</div>
+<div *ngIf="State==2" >
+	<!-- style="background-color: red; width: 50%" -->
+	<button href="RoleFlow.URL">To {{Upgrade.Title}}, Click here!</button>
+	<!-- <ng-container *ngTemplateOutlet="content" ></ng-container> -->
+</div>
+
+<ng-template #content><ng-content></ng-content></ng-template>
