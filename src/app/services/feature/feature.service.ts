@@ -9,47 +9,46 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 // import 'rxjs/add/operator/map'
 
-import { Feature, RoleFlow, Role } from "./";
+import { Feature, RoleFlow, Role, PermissionState } from "./";
 
 const Manifest = {
-	"Roles": [
+	Roles: [
 		{
-			"Key": "GUEST",
-			"Title": "Guest",
-			"Features": [
+			Key: "GUEST",
+			Title: "Guest",
+			Features: [
 				{
-					"Key": "home-card",
-					"Title": "Home Card",
-					"URL": "/",
-					"Description": "the card reading 'sample card' on the home screen"
+					Key: "home-card",
+					Title: "Home Card",
+					URL: "/",
+					Description: "the card reading 'sample card' on the home screen"
 				}
 			]
 		},
 		{
-			"Key": "SUPER",
-			"Title": "Super User",
-			"Features": [
+			Key: "SUPER",
+			Title: "Super User",
+			Features: [
 				{
-					"Key": "super-home-card",
-					"Title": "Super Home Card",
-					"URL": "/",
-					"Description": "the card reading 'Super sample card™' on the home screen"
+					Key: "super-home-card",
+					Title: "Super Home Card",
+					URL: "/",
+					Description:
+						"the card reading 'Super sample card™' on the home screen"
 				}
 			]
 		}
 	],
-	"RoleFlows": [
+	RoleFlows: [
 		{
-			"Key": "promote",
-			"Title": "Become a SuperUser",
-			"From": "GUEST",
-			"To": "SUPER",
-			"URL": "/promotion"
+			Key: "promote",
+			Title: "Become a SuperUser",
+			From: "GUEST",
+			To: "SUPER",
+			URL: "/promotion"
 		}
 	]
-}
-
-
+};
 
 // class Manifest {
 // 	Roles: Role[];
@@ -69,53 +68,59 @@ export class FeatureService {
 	UsersRoles: string[] = [];
 
 	constructor(private http: Http) {
-		this.UsersRoles.push("GUEST")
+		this.UsersRoles.push("GUEST");
 		// this.UsersRoles.push("SUPER")
 
-		this.extractRelleventData(Manifest)
+		this.extractRelleventData(Manifest);
 	}
 
 	private extractRelleventData(Manifest) {
 		// debugger
-		let releventUpgrades = []
+		let releventUpgrades = [];
 		Manifest.RoleFlows.forEach((RoleFlow: RoleFlow) => {
 			// debugger
-			let roleIndex = this.UsersRoles.indexOf(RoleFlow.From)
+			let roleIndex = this.UsersRoles.indexOf(RoleFlow.From);
 			if (roleIndex >= 0) {
 				// debugger
-				releventUpgrades.push(RoleFlow.To)
+				releventUpgrades.push(RoleFlow.To);
 			}
-			this.RoleFlows.set(RoleFlow.To, RoleFlow)
-		})
-
+			this.RoleFlows.set(RoleFlow.To, RoleFlow);
+		});
 
 		// debugger
 		Manifest.Roles.forEach((Role: Role) => {
-			if (Role.Key=="SUPER"){
+			if (Role.Key == "SUPER") {
 				// debugger
 			}
-			let canBeUpgraded = (releventUpgrades.indexOf(Role.Key) >= 0)
+			let canBeUpgraded = releventUpgrades.indexOf(Role.Key) >= 0;
 			Role.Features.forEach((Feature: Feature) => {
 				Feature.Role = Role.Key;
-				Feature.CanBeUsed =  this.UsersRoles.indexOf(Role.Key) >= 0 ? true : false;
-				Feature.CanBeUpgraded = canBeUpgraded
+				Feature.CanBeUsed =
+					this.UsersRoles.indexOf(Role.Key) >= 0 ? true : false;
+				Feature.CanBeUpgraded = canBeUpgraded;
 				this.Features.set(Feature.Key, Feature);
 			});
 			this.Roles.set(Role.Key, Role);
 		});
 	}
 
-	public canUseFeature(key: string): any { //RoleFlow or bool
-		// debugger;
-		let Feature: Feature = this.Features.get(key)
-		if (Feature.CanBeUsed) {
-			return true
-		}
-		if (!Feature.CanBeUpgraded) {
-			return false
+	public canUseFeature(key: string): any {
+		var result
+		var upgrade = null;
+		
+		let Feature: Feature = this.Features.get(key);
+		
+		if (!Feature) {
+			result = PermissionState.Unknown;
+		} else if (Feature.CanBeUsed) {
+			result = PermissionState.Show;
+		} else if (!Feature.CanBeUpgraded) {
+			result = PermissionState.Hide;
+		} else {
+			result = PermissionState.Guard;
+			upgrade = this.RoleFlows.get(Feature.Role);
 		}
 
-		return this.RoleFlows.get(Feature.Role)
-		
+		return { result: result, upgrade: upgrade };
 	}
 }
