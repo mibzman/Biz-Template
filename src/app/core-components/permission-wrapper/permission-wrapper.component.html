@@ -6,8 +6,8 @@
 	<button mat-button [routerLink]="Upgrade.URL">{{ButtonText}}</button>
 	<ng-content select="[promote]"></ng-content>
 </div>
-<div *ngIf="State==3" style="background-color: yellow">
-	Caution: Unknown Feature
+<div *ngIf="State==3 && isDev" style="background-color: yellow">
+	Caution: Unknown Feature, will be hidden in prod
 	<ng-container *ngTemplateOutlet="content" ></ng-container>
 </div>
 

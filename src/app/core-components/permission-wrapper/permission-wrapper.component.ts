@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, isDevMode } from '@angular/core';
 
 import { FeatureService } from '../../services'
 import { RoleFlow, PermissionState } from '../../services/feature'
@@ -19,11 +19,14 @@ export class PermissionWrapperComponent implements OnInit {
 
 	Upgrade: RoleFlow;
 
+	isDev: boolean
+
   constructor(
   	private featureSer: FeatureService
   	) { }
 
   ngOnInit() {
+  	this.isDev = isDevMode()
   	console.log(this.Feature)
   	let result = this.featureSer.canUseFeature(this.Feature)
   	// if (result == true){
@@ -38,7 +41,7 @@ export class PermissionWrapperComponent implements OnInit {
 
   	this.State = result.result
   	this.Upgrade = result.upgrade
-  	
+
   	if (this.UpgradeText) {
   		this.ButtonText = this.UpgradeText
   	} else if (this.State == PermissionState.Guard){
