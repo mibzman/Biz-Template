@@ -88,7 +88,7 @@ export class FeatureService {
 		});
 
 		// debugger
-		Manifest.Roles.forEach((Role: Role) => {
+		Manifest.Roles.forEach((Role: Role) => { 
 			if (Role.Key == "SUPER") {
 				// debugger
 			}
@@ -107,7 +107,7 @@ export class FeatureService {
 	public canUseFeature(key: string): any {
 		var result
 		var upgrade = null;
-		
+
 		let Feature: Feature = this.Features.get(key);
 		
 		if (!Feature) {

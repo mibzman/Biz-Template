@@ -11,8 +11,11 @@ import { RoleFlow, PermissionState } from '../../services/feature'
 export class PermissionWrapperComponent implements OnInit {
 
 	@Input() Feature: string
+	@Input() UpgradeText: string
 
 	State: PermissionState = PermissionState.Show
+
+	ButtonText
 
 	Upgrade: RoleFlow;
 
@@ -35,6 +38,12 @@ export class PermissionWrapperComponent implements OnInit {
 
   	this.State = result.result
   	this.Upgrade = result.upgrade
+  	
+  	if (this.UpgradeText) {
+  		this.ButtonText = this.UpgradeText
+  	} else if (this.State == PermissionState.Guard){
+  		this.ButtonText = this.Upgrade.Title
+  	}
   }
 
 }

@@ -3,8 +3,8 @@
 	<ng-container *ngTemplateOutlet="content"></ng-container>	
 </div>
 <div *ngIf="State==2" >
-	<button href="RoleFlow.URL">To {{Upgrade.Title}}, Click here!</button>
-	<!-- <ng-container *ngTemplateOutlet="content" ></ng-container> -->
+	<button mat-button [routerLink]="Upgrade.URL">{{ButtonText}}</button>
+	<ng-content select="[promote]"></ng-content>
 </div>
 <div *ngIf="State==3" style="background-color: yellow">
 	Caution: Unknown Feature
