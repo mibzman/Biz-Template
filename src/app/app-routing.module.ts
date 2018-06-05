@@ -16,6 +16,7 @@ const routes: Routes = [
 	//   pathMatch: 'full'
 	// },
 	// { path: 'DashComponent', component: DashComponent },
+	{ path: 'login', loadChildren: './entry/entry.module#EntryModule'}
 	{ path: '**', loadChildren: './dash/dash.module#DashModule'}
 ];
 

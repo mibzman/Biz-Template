@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { FeatureService } from './feature/feature.service';
+import { FeatureService, AuthService } from './';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ export class ServicesModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ServicesModule,
-      providers: [ FeatureService ]
+      providers: [ FeatureService, AuthService ]
     };
   }
 }
