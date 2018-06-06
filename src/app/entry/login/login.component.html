@@ -1,15 +1,18 @@
-<form class="example-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+<div class="wrapper">
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Username" [(ngModel)]="model.Username" name="Username">
-  </mat-form-field>
+  <form class="example-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="model.Password" name="Password">
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-    
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" [(ngModel)]="model.Username" name="Username">
+    </mat-form-field>
 
-  <button mat-button type="submit">Submit</button>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="model.Password" name="Password">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 
-</form>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit">Submit</button>
+
+  </form>
+</div>
