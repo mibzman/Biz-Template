@@ -21,14 +21,16 @@ const routes: Routes = [
 	//   component: HomeComponent ,
 	//   data: { title: 'Heroes List' }
 	// },
-	// { path: '**', component: HomeComponent, outlet:'dash' },
+	
 	{ path: '', component: DashComponent,
      children: [
-     		{ path: '**', component: HomeComponent },
-        // { path: '**', redirectTo:'/home' }//,
+     		{ path: 'home', component: HomeComponent },
+        { path: '**', redirectTo:'home' } //if you leave out the slash it becomes a relative link
+        // { path: '**', component: HomeComponent },
         // { path: 'graphs', component: GraphsComponent },
      ]
-  }
+  },
+  { path: '**', redirectTo:'' },
 ];
 
 @NgModule({

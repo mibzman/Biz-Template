@@ -22,7 +22,8 @@ const routes: Routes = [
 	// { path: 'DashComponent', component: DashComponent },
 	{ path: 'login', component: LoginComponent},
 	{ path: 'signup', component: SignupComponent},
-	{ path: '**', loadChildren: './dash/dash.module#DashModule', canActivate: [EntryGuard]}
+	{ path: 'dash', loadChildren: './dash/dash.module#DashModule', canActivate: [EntryGuard]}
+	{ path: '**', redirectTo:"dash"}
 ];
 
 @NgModule({

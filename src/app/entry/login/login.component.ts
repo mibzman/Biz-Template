@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("submit")
   	this.authSer.Login(this.model.Username, this.model.Password)
     if (this.authSer.isLoggedIn) {
       this.router.navigate(['/home']);
