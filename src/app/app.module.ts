@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServicesModule } from './services/services.module'
 import { EntryModule } from './entry/entry.module'
 
+import { EntryGuard } from './entry.guard'
+
 const UI = [
   AppRoutingModule,
   EntryModule,
@@ -30,6 +32,7 @@ const UI = [
     ServicesModule.forRoot(),
   ],
   providers: [
+    EntryGuard
   ],
   bootstrap: [AppComponent]
 })

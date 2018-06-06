@@ -24,7 +24,8 @@ const routes: Routes = [
 	// { path: '**', component: HomeComponent, outlet:'dash' },
 	{ path: '', component: DashComponent,
      children: [
-        { path: '**', component: HomeComponent }//,
+     		{ path: '**', component: HomeComponent },
+        // { path: '**', redirectTo:'/home' }//,
         // { path: 'graphs', component: GraphsComponent },
      ]
   }

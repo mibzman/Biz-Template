@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashComponent } from './dash/dash.component'
+import { EntryGuard } from './entry.guard'
+
+// import { DashComponent } from './dash/dash.component'
+import { LoginComponent } from './entry/login/login.component'
+import { SignupComponent } from './entry/signup/signup.component'
 
 const routes: Routes = [
 	// { path: 'crisis-center', component: CrisisListComponent },
@@ -16,8 +20,9 @@ const routes: Routes = [
 	//   pathMatch: 'full'
 	// },
 	// { path: 'DashComponent', component: DashComponent },
-	{ path: 'login', loadChildren: './entry/entry.module#EntryModule'}
-	{ path: '**', loadChildren: './dash/dash.module#DashModule'}
+	{ path: 'login', component: LoginComponent},
+	{ path: 'signup', component: SignupComponent},
+	{ path: '**', loadChildren: './dash/dash.module#DashModule', canActivate: [EntryGuard]}
 ];
 
 @NgModule({

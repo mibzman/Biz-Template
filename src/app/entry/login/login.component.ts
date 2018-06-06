@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+
+
+import { AuthService } from '../../services'
 
 class Login {
 	Username: string;
@@ -16,13 +20,20 @@ export class LoginComponent implements OnInit {
 
 	model = new Login();
 
-  constructor() { }
+  constructor(
+    private authSer: AuthService,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-  	console.log(this.model)
+    console.log("submit")
+  	this.authSer.Login(this.model.Username, this.model.Password)
+    if (this.authSer.isLoggedIn) {
+      this.router.navigate(['/home']);
+    }
   }
 
 }
