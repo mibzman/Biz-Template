@@ -5,7 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule }   from '@angular/forms';
 
 import { EqualValidator } from './equal-validator.directive'
-import { EntryGuard } from './entry.guard'
+import { EntryGuard } from '../entry.guard'
 import { EntryRoutingModule } from './entry-routing.module'
 
 @NgModule({
