@@ -25,8 +25,9 @@ export class EntryGuard implements CanActivate {
 		// console.log("guard:", )
 		// debugger
 		if (!this.authSer.isLoggedIn) {
-			// console.log("guard:", "redirecting")
-			this.router.navigate(["/login"])
+			console.log("guard:", "redirecting")
+			this.authSer.Login()
+			// this.router.navigate(["/login"])
 			return false	
 		} else {
 			return true

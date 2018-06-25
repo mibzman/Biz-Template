@@ -14,18 +14,14 @@ func main() {
 
 	mx := mux.NewRouter()
 
-	PublicRouter := mx.PathPrefix("/public").Subrouter()
+	// PublicRouter := mux.NewRouter().PathPrefix("/public").Subrouter()
+	SetupPublicRouter(mx)
+
+	// PrivateRouter := mux.NewRouter().PathPrefix("/private").Subrouter()
+	SetupPrivateRouter(mx)
 
 	ConnectToDatabase("local")
 	defer Accessor.Close()
-
-	SetupPublicRoutes(PublicRouter)
-
-	PublicRouter.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Printf("test hit")
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		// io.WriteString(w, "{'Status': 'Green'}")
-	})
 
 	fmt.Print("server is serving")
 	fmt.Print(http.ListenAndServe(":"+os.Getenv("PORT"), mx))

@@ -6,7 +6,8 @@ import { FormsModule }   from '@angular/forms';
 
 import { EqualValidator } from './equal-validator.directive'
 import { EntryGuard } from '../entry.guard'
-import { EntryRoutingModule } from './entry-routing.module'
+import { EntryRoutingModule } from './entry-routing.module';
+import { CallbackComponent } from './callback/callback.component'
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { EntryRoutingModule } from './entry-routing.module'
     FormsModule
   ],
   exports: [LoginComponent, SignupComponent],
-  declarations: [LoginComponent, SignupComponent, EqualValidator]
+  declarations: [LoginComponent, SignupComponent, EqualValidator, CallbackComponent]
 })
 export class EntryModule { }

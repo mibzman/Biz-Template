@@ -6,6 +6,7 @@ import { EntryGuard } from './entry.guard'
 // import { DashComponent } from './dash/dash.component'
 import { LoginComponent } from './entry/login/login.component'
 import { SignupComponent } from './entry/signup/signup.component'
+import { CallbackComponent } from './entry/callback/callback.component'
 
 const routes: Routes = [
 	// { path: 'crisis-center', component: CrisisListComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
 	// { path: 'DashComponent', component: DashComponent },
 	{ path: 'login', component: LoginComponent},
 	{ path: 'signup', component: SignupComponent},
+	{ path: 'callback', component: CallbackComponent},
 	{ path: 'dash', loadChildren: './dash/dash.module#DashModule', canActivate: [EntryGuard]},
 	{ path: '**', redirectTo:"dash"}
 ];

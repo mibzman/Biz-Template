@@ -4,7 +4,7 @@ import { CoreComponentsModule } from '../core-components';
 import { HomeComponent } from './home/home.component';
 import { DashComponent } from './dash.component';
 
-import { DashRoutingModule} from './dash-routing.module'
+import { DashRoutingModule } from './dash-routing.module'
 
 
 @NgModule({

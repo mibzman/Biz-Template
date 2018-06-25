@@ -14,6 +14,8 @@ import {
 import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const MODULES = [
   MatButtonModule,
@@ -26,7 +28,9 @@ const MODULES = [
   MatListModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatInputModule
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatGridListModule,
 ]
 
 @NgModule({

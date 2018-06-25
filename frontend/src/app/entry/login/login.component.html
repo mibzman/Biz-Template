@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-  <form class="example-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+<!--   <form class="example-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
 
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Username" [(ngModel)]="model.Username" name="Username" required>
@@ -10,9 +10,10 @@
       <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="model.Password" name="Password" required>
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
 
-    </mat-form-field>
+    </mat-form-field> -->
 
-    <button mat-raised-button type="submit">Submit</button>
+<!-- type="submit" -->
+    <button mat-raised-button (click)="Login()">Get Started!</button>
 
-  </form>
+  <!-- </form> -->
 </div>
