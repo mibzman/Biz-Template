@@ -13,25 +13,22 @@ import { AuthService } from "./services";
 	providedIn: "root"
 })
 export class EntryGuard implements CanActivate {
-	constructor(
-		private authSer: AuthService,
-		private router: Router) {}
+	constructor(private authSer: AuthService, private router: Router) {}
 
 	canActivate(
 		next: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot
 	): Observable<boolean> | Promise<boolean> | boolean {
-		let isLoggedIn = this.authSer.isLoggedIn
+		let isLoggedIn = this.authSer.isLoggedIn;
 		// console.log("guard:", )
 		// debugger
 		if (!this.authSer.isLoggedIn) {
-			console.log("guard:", "redirecting")
-			this.authSer.Login()
+			console.log("guard:", "redirecting");
+			// this.authSer.Login()
 			// this.router.navigate(["/login"])
-			return false	
+			return true;
 		} else {
-			return true
+			return true;
 		}
-		
 	}
 }
