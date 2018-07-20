@@ -1,19 +1,17 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { FeatureService, AuthService, StorageService } from './';
+import { NgModule, ModuleWithProviders } from "@angular/core";
+import { RouterModule } from "@angular/router";
+import { FeatureService, AuthService, StorageService, DataService } from "./";
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [RouterModule],
-  exports: [
-  ]
+  exports: []
 })
 export class ServicesModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ServicesModule,
-      providers: [ FeatureService, AuthService, StorageService ]
+      providers: [FeatureService, AuthService, StorageService, DataService]
     };
   }
 }

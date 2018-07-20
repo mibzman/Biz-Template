@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { AuthService } from "./../../services";
+import { AuthService, DataService } from "./../../services";
 
 @Component({
 	selector: "app-home",
@@ -8,7 +8,27 @@ import { AuthService } from "./../../services";
 	styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-	constructor(private authSer: AuthService, public router: Router) {}
+	DataResult: any = {
+					"Data": "Not Loaded",
+					"MoreData": "Not Loaded"
+				}
+
+	constructor(
+		private authSer: AuthService,
+		public router: Router,
+		private dataSer: DataService
+	) {
+		//try changing the value passed to this function
+		dataSer.GetData("Thing One").subscribe(result => {
+			this.DataResult = result
+		}, err => {
+			console.log("an error occured:", err)
+			this.DataResult = {
+					"Data": "Failed to get value",
+					"MoreData": "Failed to get value"
+				}
+		})
+	}
 
 	ngOnInit() {}
 
